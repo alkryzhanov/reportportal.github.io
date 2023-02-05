@@ -8,10 +8,19 @@ module.exports = {
     description: 'Official Contentful Gatsby Starter',
   },
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHubStars',
+        fieldName: 'githubStars',
+        url: 'https://status.reportportal.io/github/stars',
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: {

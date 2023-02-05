@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   );
 
   if (result.errors) {
-    reporter.panicOnBuild(`There was an error loading your Contentful posts`, result.errors);
+    reporter.panicOnBuild('There was an error loading your Contentful posts', result.errors);
 
     return;
   }
@@ -48,4 +48,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
     });
   }
+};
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
+  const result = await fetch('https://status.reportportal.io/github/stars');
+  const resultData = await result.json();
+
+  createNode({
+    // nameWithOwner and url are arbitrary fields from the data
+    repos: resultData.repos,
+    // required fields
+    id: 'Github',
+    parent: null,
+    children: [],
+    internal: {
+      type: 'GithubStars',
+      contentDigest: createContentDigest(resultData),
+    },
+  });
 };
