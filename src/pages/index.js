@@ -1,24 +1,24 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
+// import get from 'lodash/get';
 
 import { Layout } from '../components/Layout';
-import { Hero } from '../components/Hero';
-import { ArticlePreview } from '../components/ArticlePreview';
+// import { Hero } from '../components/Hero';
+// import { ArticlePreview } from '../components/ArticlePreview';
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes');
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes');
+    // const posts = get(this, 'props.data.allContentfulBlogPost.nodes');
+    // const [author] = get(this, 'props.data.allContentfulPerson.nodes');
 
     return (
       <Layout location={this.props.location}>
-        <Hero
-          image={author.heroImage?.gatsbyImage}
-          title={author?.name}
-          content={author?.shortBio}
-        />
-        <ArticlePreview posts={posts} />
+        {/* <Hero */}
+        {/*  image={author.heroImage?.gatsbyImage} */}
+        {/*  title={author?.name} */}
+        {/*  content={author?.shortBio} */}
+        {/* /> */}
+        {/* <ArticlePreview posts={posts} /> */}
       </Layout>
     );
   }
