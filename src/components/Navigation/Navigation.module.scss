@@ -27,6 +27,7 @@ $color-hover: #2F3C5F;
   width: 100%;
   align-content: flex-end;
   justify-content: space-between;
+  position: relative;
 }
 
 .navigation__logoLink {
@@ -53,6 +54,10 @@ $color-hover: #2F3C5F;
   margin: 0;
   padding-left: 0;
   list-style: none;
+}
+
+.navigation__item {
+  //position: relative;
 }
 
 .navigation__link {
@@ -89,6 +94,13 @@ $color-hover: #2F3C5F;
     .header:hover & {
       stroke: var(--text-primary);
     }
+  }
+}
+
+.navigation__arrow--up {
+
+  svg {
+    transform: rotate(180deg);
   }
 }
 

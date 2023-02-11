@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
+import cx from 'classnames';
 
 import * as styles from './Navigation.module.scss';
 import { StarIcon } from './StarIcon';
@@ -18,6 +19,8 @@ export const Navigation = () => {
       }
     }
   `);
+  const [isMainShown, setIsMainShown] = useState(false);
+  const [isSolutionShown, setIsSolutionShown] = useState(false);
 
   return (
     <div className="sticky-wrapper">
@@ -28,19 +31,25 @@ export const Navigation = () => {
               <NavLogoIcon />
             </Link>
             <ul id="navigation" className={styles.navigation__list} role="list">
-              <li>
+              <li className={styles.navigation__item}>
                 <button
                   className={styles.navigation__link}
                   type="button"
                   aria-haspopup="true"
                   aria-expanded="false"
                   aria-controls="#product-menu"
+                  onClick={() => setIsMainShown((prevState) => !prevState)}
                 >
                   <span className="navigation__link-child">Product</span>
-                  <span className={styles.navigation__arrow}>
+                  <span
+                    className={cx(styles.navigation__arrow, {
+                      [`${styles.navigation__arrowUp}`]: isMainShown,
+                    })}
+                  >
                     <ArrowIcon />
                   </span>
                 </button>
+                {isMainShown && <MainMenu />}
               </li>
               <li>
                 <button
@@ -49,12 +58,18 @@ export const Navigation = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                   aria-controls="#solutions-menu"
+                  onClick={() => setIsSolutionShown((prevState) => !prevState)}
                 >
                   <span className="navigation__link-child">Solutions</span>
-                  <span className={styles.navigation__arrow}>
+                  <span
+                    className={cx(styles.navigation__arrow, {
+                      [`${styles.navigation__arrowUp}`]: isSolutionShown,
+                    })}
+                  >
                     <ArrowIcon />
                   </span>
                 </button>
+                {isSolutionShown && <MainMenu />}
               </li>
               <li>
                 <button
@@ -124,7 +139,6 @@ export const Navigation = () => {
           </nav>
         </div>
       </header>
-      <MainMenu />
     </div>
   );
 };

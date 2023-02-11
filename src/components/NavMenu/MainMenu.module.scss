@@ -1,18 +1,19 @@
 @import "src/styles/mixins/_font";
 
 .menu {
-  display: flex;
-  justify-content: center;
+  //display: flex;
+  //justify-content: center;
 }
 
 .menu-dialog {
-  max-width: 960px;
-  width: 100%;
+  width: 960px;
   background: #FFFFFF;
   border-top: 1px solid #EDEFF7;
   box-shadow: 0 8px 24px rgba(34, 61, 69, 0.08);
   border-radius: 0 0 16px 16px;
   position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
 }
 
 .menu-body {
@@ -151,7 +152,7 @@
     margin: 0;
   }
 
-  &:hover .features-list-link__body{
+  &:hover .features-list-link__body {
     background: var(--bg-grey2);
     border-radius: 8px;
   }
@@ -163,10 +164,12 @@
 
   font-size: 16px;
   line-height: 20px;
-  color: #2F3C5F;
+  color: var(--text-primary);
   padding: 8px 32px 8px 8px;
   position: relative;
-  display: block;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 
   & svg {
     position: absolute;
@@ -174,9 +177,37 @@
     right: 8px;
     transform: translate(0, -50%);
   }
+
+  &:hover {
+    color: var(--color-primary-500);
+  }
+
+  &:active {
+    color: var(--color-primary-700);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    color: var(--color-primary-600);
+    cursor: auto;
+  }
+
+  &:hover svg > path {
+    fill: var(--color-primary-500);
+  }
+
+  &:active svg > path {
+    fill: var(--color-primary-700);
+  }
+
+  &:disabled svg > path {
+    opacity: 0.3;
+    fill: var(--color-primary-600);
+    cursor: auto;
+  }
 }
 
-.integrations-list__link {
+.integrations-link {
   @include font-poppins($fw-semi-bold);
 
   padding: 14px 0 14px 52px;
@@ -192,10 +223,75 @@
     left: 12px;
   }
 
-  &:hover {
-    background: var(--bg-grey2);
-    border-radius: 8px;
-    color: var(--text-primary);
+  &__icon {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 28px;
+    height: 28px;
+  }
+
+  &__icon--jira-one {
+    background-image: url("icons/jira-one.svg");
+  }
+
+  &__icon--jira-two {
+    background-image: url("icons/jira-two.svg");
+  }
+
+  &__icon--azure-do {
+    background-image: url("icons/azure-do.svg");
+  }
+
+  &__icon--rally {
+    background-image: url("icons/rally.svg");
+  }
+
+  &__icon--sauce-labs {
+    background-image: url("icons/sauce-labs.svg");
+  }
+
+  &__icon--ldap {
+    background-image: url("icons/ldap.svg");
+  }
+
+  &__icon--saml {
+    background-image: url("icons/saml.svg");
+  }
+}
+
+.integrations-link:hover {
+  background: var(--bg-grey2);
+  border-radius: 8px;
+  color: var(--text-primary);
+
+  & .integrations-link__icon--jira-one {
+    background-image: url("icons/jira-one-h.svg");
+  }
+
+  & .integrations-link__icon--jira-two {
+    background-image: url("icons/jira-two-h.svg");
+  }
+
+  & .integrations-link__icon--azure-do {
+    background-image: url("icons/azure-do-h.svg");
+  }
+
+  & .integrations-link__icon--rally {
+    background-image: url("icons/rally-h.svg");
+  }
+
+  & .integrations-link__icon--sauce-labs {
+    background-image: url("icons/sauce-labs-h.svg");
+  }
+
+  & .integrations-link__icon--ldap {
+    background-image: url("icons/ldap-h.svg");
+  }
+
+  & .integrations-link__icon--saml {
+    background-image: url("icons/saml-h.svg");
   }
 }
 
