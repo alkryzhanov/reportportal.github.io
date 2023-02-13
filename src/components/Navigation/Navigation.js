@@ -4,11 +4,15 @@ import axios from 'axios';
 import cx from 'classnames';
 
 import githubStats from '../../../static/github.json';
-import { StarIcon } from './StarIcon';
-import { GithubIcon } from './GithubIcon';
-import { NavLogoIcon } from './NavLogoIcon';
-import { ArrowIcon } from './ArrowIcon';
-import { SolutionsMenu, ProductMenu, MenuContainer } from '../NavMenu';
+import {
+  SolutionsMenu,
+  ProductMenu,
+  OfferingsMenu,
+  LearnMenu,
+  CommunityMenu,
+  MenuContainer,
+} from '../NavMenu';
+import { StarIcon, GithubIcon, NavLogoIcon, ArrowIcon } from './icons';
 
 import * as styles from './Navigation.module.scss';
 
@@ -55,7 +59,7 @@ export const Navigation = () => {
               <NavLogoIcon />
             </Link>
             <ul id="navigation" ref={menuLinksRef} className={styles.navigation__list} role="list">
-              <li className={styles.navigation__item}>
+              <li>
                 <button
                   className={styles.navigation__link}
                   type="button"
@@ -130,7 +134,7 @@ export const Navigation = () => {
                   menuLinksRef={menuLinksRef}
                   onClose={() => updateMenus()}
                 >
-                  <SolutionsMenu />
+                  <OfferingsMenu />
                 </MenuContainer>
               </li>
               <li>
@@ -156,7 +160,7 @@ export const Navigation = () => {
                   menuLinksRef={menuLinksRef}
                   onClose={() => updateMenus()}
                 >
-                  <SolutionsMenu />
+                  <LearnMenu />
                 </MenuContainer>
               </li>
               <li>
@@ -182,7 +186,7 @@ export const Navigation = () => {
                   menuLinksRef={menuLinksRef}
                   onClose={() => updateMenus()}
                 >
-                  <SolutionsMenu />
+                  <CommunityMenu />
                 </MenuContainer>
               </li>
             </ul>
@@ -191,9 +195,9 @@ export const Navigation = () => {
                 href="https://github.com/reportportal/reportportal.github.io"
                 className={styles.navigation__github}
               >
-                <GithubIcon />
+                <GithubIcon classNmae={styles.github} />
                 <span className={styles.navigation__githubValue}>
-                  <StarIcon />
+                  <StarIcon className={styles.star} />
                   {githubCounter}
                 </span>
               </a>

@@ -1,11 +1,11 @@
-@import "src/styles/mixins/_font";
+@import 'src/styles/mixins/font';
 
-$color-hover: #2F3C5F;
+$color-hover: #2f3c5f;
 
 .header {
   background: var(--text-service);
   color: var(--text-white);
-  transition: background .5s;
+  transition: background 0.5s;
 
   &:hover {
     background: var(--bg-white);
@@ -35,15 +35,15 @@ $color-hover: #2F3C5F;
   line-height: 0;
 
   svg {
-    transition: fill .4s;
+    transition: fill 0.4s;
   }
 
   .header:hover & {
-    [class*=logo-block] {
-      fill: #00B0D1;
+    [class*='logo-block'] {
+      fill: #00b0d1;
     }
 
-    [class*=logo-title] {
+    [class*='logo-title'] {
       fill: var(--text-dark);
     }
   }
@@ -54,10 +54,6 @@ $color-hover: #2F3C5F;
   margin: 0;
   padding-left: 0;
   list-style: none;
-}
-
-.navigation__item {
-  //position: relative;
 }
 
 .navigation__link {
@@ -73,7 +69,7 @@ $color-hover: #2F3C5F;
   color: inherit;
   cursor: pointer;
   background: unset;
-  transition: color .4s;
+  transition: color 0.4s;
 
   &:hover {
     color: var(--color-primary-500);
@@ -89,7 +85,7 @@ $color-hover: #2F3C5F;
 
   svg {
     stroke: var(--bg-white);
-    transition: stroke .4s;
+    transition: stroke 0.4s;
 
     .header:hover & {
       stroke: var(--text-primary);
@@ -98,7 +94,6 @@ $color-hover: #2F3C5F;
 }
 
 .navigation__arrow--up {
-
   svg {
     transform: rotate(180deg);
   }
@@ -146,7 +141,7 @@ $color-hover: #2F3C5F;
   border-radius: 7px;
   font-size: 13px;
   line-height: 20px;
-  color: #EDEFF7;
+  color: #edeff7;
 
   .header:hover & {
     color: var(--text-service);
@@ -177,7 +172,7 @@ $color-hover: #2F3C5F;
   font-size: 16px;
   color: var(--text-white);
   text-align: center;
-  transition: all .2s cubic-bezier(.645,.045,.355,1);
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   .header:hover & {
     color: var(--color-primary-600);
