@@ -78,12 +78,24 @@ $color-hover: #2f3c5f;
       stroke: var(--color-primary-500) !important;
     }
   }
+
+  &:active {
+    color: var(--color-primary-700);
+
+    .navigation__arrow svg {
+      stroke: var(--color-primary-700) !important;
+    }
+  }
 }
 
 .navigation__arrow {
-  padding-left: 7px;
+  position: relative;
+  padding-left: 8px;
 
   svg {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
     stroke: var(--bg-white);
     transition: stroke 0.4s;
 
@@ -91,11 +103,11 @@ $color-hover: #2f3c5f;
       stroke: var(--text-primary);
     }
   }
-}
 
-.navigation__arrow--up {
-  svg {
-    transform: rotate(180deg);
+  &.navigation__arrow--up {
+    svg {
+      transform: translate(0, -50%) rotate(180deg);
+    }
   }
 }
 
